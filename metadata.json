@@ -1,0 +1,6 @@
+{
+  "name": "كنيسة ماريوحنا بالمعراج التربية الكنسية",
+  "description": "منظومة إلكترونية متكاملة للتربية الكنسية ومدارس الأحد بكنيسة القديس يوحنا المعمدان بالمعراج لمتابعة حضور وغياب الأولاد والخدام والمكتبة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Test connection doc
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    // Users collection: servants & supervisors (allows full read/write for auth & directory)
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Makhdomeen collection: children records
+    match /makhdomeen/{makhdoomId} {
+      allow read, write: if true;
+    }
+
+    // Attendance collection: attendance events
+    match /attendance/{attendanceId} {
+      allow read, write: if true;
+    }
+
+    // Library collection: books & curricula
+    match /library/{bookId} {
+      allow read, write: if true;
+    }
+
+    // Announcements collection: urgent church alerts
+    match /announcements/{announcementId} {
+      allow read, write: if true;
+    }
+  }
+}

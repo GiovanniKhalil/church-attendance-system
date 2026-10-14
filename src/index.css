@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-burgundy-950: #26050c;
+  --color-burgundy-900: #440915;
+  --color-burgundy-800: #590c1d;
+  --color-burgundy-700: #711025;
+  --color-burgundy-600: #8c152f;
+  --color-burgundy-500: #ab1a39;
+  --color-burgundy-400: #ca2c4e;
+  --color-burgundy-300: #e2637f;
+  --color-burgundy-200: #f4a5b7;
+  --color-burgundy-100: #fde2e8;
+  --color-burgundy-50: #fff1f4;
+
+  --color-churchgold-950: #2b1d05;
+  --color-churchgold-900: #493108;
+  --color-churchgold-800: #6e490b;
+  --color-churchgold-700: #966411;
+  --color-churchgold-600: #bf8117;
+  --color-churchgold-500: #d4a340;
+  --color-churchgold-400: #e5bd5c;
+  --color-churchgold-300: #f2d485;
+  --color-churchgold-200: #f8e7b3;
+  --color-churchgold-100: #fcf5dc;
+  --color-churchgold-50: #fdfaf0;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+/* Custom scrollbars with church gold/burgundy tints */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 21, 47, 0.2);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(212, 163, 64, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 21, 47, 0.4);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 163, 64, 0.45);
+}
+
+/* Print Optimization for Church Rosters and Attendance */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt !important;
+  }
+
+  /* Hide UI elements during printing */
+  header, 
+  nav, 
+  aside,
+  footer,
+  .no-print,
+  button,
+  input,
+  select,
+  .sidebar-container,
+  .mobile-header {
+    display: none !important;
+  }
+
+  /* Force full width on main content */
+  main, .main-content-area {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Printable table styles */
+  .printable-card, .print-table-container {
+    border: 1px solid #333333 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    border: 1px solid #333333 !important;
+    padding: 6px 8px !important;
+    color: #000000 !important;
+  }
+
+  th {
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}

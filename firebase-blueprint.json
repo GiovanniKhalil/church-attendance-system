@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Servant or supervisor user account",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique user ID" },
+        "fullName": { "type": "string", "description": "Full name of the servant/supervisor", "maxLength": 100 },
+        "phone": { "type": "string", "description": "Phone number", "maxLength": 20 },
+        "role": { "type": "string", "description": "Role in church service" },
+        "assignedClass": { "type": "string", "description": "Assigned class or stage", "maxLength": 100 },
+        "isFirstLogin": { "type": "boolean", "description": "Flag for first login password change" },
+        "username": { "type": "string", "description": "Unique username (letters, dot, underscore)", "maxLength": 50 },
+        "passwordHash": { "type": "string", "description": "Encrypted SHA-256 password hash", "maxLength": 100 }
+      },
+      "required": ["uid", "fullName", "phone", "role"]
+    },
+    "Makhdoom": {
+      "title": "Makhdoom",
+      "description": "Child / attendee record",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Full name of the child", "maxLength": 100 },
+        "birthDate": { "type": "string", "description": "Birth date in YYYY-MM-DD format" },
+        "stage": { "type": "string", "description": "Educational or Sunday School stage", "maxLength": 100 },
+        "classGroup": { "type": "string", "description": "Specific class group or chapter", "maxLength": 100 },
+        "points": { "type": "number", "description": "Reward points count" },
+        "phone": { "type": "string", "description": "Child phone number", "maxLength": 20 },
+        "parentPhone": { "type": "string", "description": "Parent phone number", "maxLength": 20 }
+      },
+      "required": ["fullName", "stage"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Attendance event record for child, servant, or supervisor",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "description": "Date in YYYY-MM-DD" },
+        "month": { "type": "number", "description": "Month number 1-12" },
+        "personId": { "type": "string", "description": "ID of attendee" },
+        "personType": { "type": "string", "description": "child, servant, or supervisor" },
+        "eventType": { "type": "string", "description": "mass, sunday_school, festival, or service_meeting" },
+        "status": { "type": "string", "description": "present, absent, late, or excused" }
+      },
+      "required": ["date", "personId", "personType", "eventType", "status"]
+    },
+    "LibraryBook": {
+      "title": "LibraryBook",
+      "description": "Educational or spiritual book",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Book title", "maxLength": 150 },
+        "category": { "type": "string", "description": "Book category", "maxLength": 50 },
+        "targetGrade": { "type": "string", "description": "Target educational grade or stage", "maxLength": 100 },
+        "fileUrl": { "type": "string", "description": "URL or path of the PDF document" }
+      },
+      "required": ["title", "category", "targetGrade"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "Urgent church announcement or notice",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Announcement title", "maxLength": 150 },
+        "body": { "type": "string", "description": "Announcement content body", "maxLength": 1000 },
+        "targetRole": { "type": "string", "description": "Target audience role or all", "maxLength": 50 },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["title", "body"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Church servants and administrators"
+    },
+    "/makhdomeen/{makhdoomId}": {
+      "schema": { "$ref": "#/entities/Makhdoom" },
+      "description": "Children and students in Sunday school"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": { "$ref": "#/entities/AttendanceRecord" },
+      "description": "Attendance tracking records"
+    },
+    "/library/{bookId}": {
+      "schema": { "$ref": "#/entities/LibraryBook" },
+      "description": "Library curriculum and spiritual books"
+    },
+    "/announcements/{announcementId}": {
+      "schema": { "$ref": "#/entities/Announcement" },
+      "description": "Broadcast announcements and notices"
+    }
+  }
+}

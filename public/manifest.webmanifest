@@ -1,0 +1,88 @@
+{
+  "id": "/",
+  "name": "كنيسة ماريوحنا بالمعراج التربية الكنسية",
+  "short_name": "خدمة ماريوحنا",
+  "description": "منظومة إلكترونية متكاملة لخدمة التربية الكنسية ومدارس الأحد بكنيسة القديس يوحنا المعمدان بالمعراج",
+  "theme_color": "#4d0b1f",
+  "background_color": "#180810",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "تسجيل حضور المخدومين",
+      "short_name": "حضور الأولاد",
+      "description": "تسجيل الحضور والغياب للمخدومين والأولاد",
+      "url": "/?tab=children_attendance",
+      "icons": [
+        {
+          "src": "/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "تسجيل حضور الخدام",
+      "short_name": "حضور الخدام",
+      "description": "تسجيل ومتابعة حضور الخدام",
+      "url": "/?tab=servants_attendance",
+      "icons": [
+        {
+          "src": "/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "دليل المخدومين",
+      "short_name": "المخدومين",
+      "description": "بيانات وتفاصيل الأولاد والمخدومين",
+      "url": "/?tab=children_directory",
+      "icons": [
+        {
+          "src": "/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "دليل الخدام",
+      "short_name": "الخدام",
+      "description": "دليل الخدام والمراحل الخدمية",
+      "url": "/?tab=servants_directory",
+      "icons": [
+        {
+          "src": "/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
